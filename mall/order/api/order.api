@@ -1,0 +1,16 @@
+type (
+	OrderReq {
+		Id   string `path:"id"`
+		//Name string `path:"name"`
+	}
+
+	OrderReply {
+		Id     string `json:"id"`
+		Name   string `json:"name"`
+	//	Status string `json:"status"`
+	}
+)
+service order {
+	@handler getOrder
+	get /api/order/get/:id (OrderReq) returns (OrderReply)
+}
